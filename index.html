@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مركز حارم
-  </title>
+  <title>مركز حارم</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -246,10 +245,9 @@
   <header>
     <div class="header-container">
       <div class="logo-area" onclick="goHome()">
-        <h1>مركز حارم
-        </h1>
+        <h1>مركز حارم</h1>
       </div>
-      <div class="rate-display" id="rateDisplay">1$ = 14,300ل.س</div>
+      <div class="rate-display" id="rateDisplay">1$ = 14,300 ل.س</div>
     </div>
   </header>
 
@@ -306,10 +304,10 @@
     // ==========================================
     let products = [
       { id: 1, categoryId: "03", name: "فلين مقطع", priceUSD: 15, image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg", hidden: false },
-      { id: 2, categoryId: "01", name: "تطبيق مدفوع النسخة الكاملة", priceUSD: 5, image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg", hidden: false },
+      { id: 2, categoryId: "01", name: "تطبيق مدفوع النسخة الكاملة", priceUSD: 5, image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg", hidden: false }
     ];
 
-    // توليد الـ 200 منتج المخفية بطريقة برمجية نظيفة وآمنة تماماً لمنع أخطاء التكرار والنسخ
+    // توليد الـ 200 منتج المخفية بطريقة برمجية نظيفة وآمنة تماماً
     for (let i = 3; i <= 202; i++) {
       products.push({
         id: i,
@@ -320,14 +318,7 @@
         hidden: true
       });
     }
-({
-        id: i,
-        categoryId: "01",
-        name: `منتج جديد ${i}`,
-        priceUSD: 0,
-        image: "",
-        hidden: false
-      });
+
     let activeCategory = null;
 
     function formatNumber(num) {
