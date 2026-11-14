@@ -1,896 +1,1096 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مركز حارم | كتالوج المنتجات الشامل</title>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root {
---primary: #3b82f6;
---primary-dark: #1d4ed8;
---primary-light: #eff6ff;
---accent: #1e293b;
---bg-color: #f1f5f9;
---card-bg: #ffffff;
---text-main: #1e293b;
---text-muted: #64748b;
---border-color: #cbd5e1;
---whatsapp: #25d366;
---whatsapp-dark: #128c7e;
---shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
---shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
---shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-​* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-font-family: 'Tajawal', sans-serif;
--webkit-tap-highlight-color: transparent;
-}
-​body {
-background-color: var(--bg-color);
-color: var(--text-main);
-padding-bottom: 60px;
-line-height: 1.5;
-}
-​/* الهيدر العلوي */
-header {
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-box-shadow: var(--shadow-sm);
-border-bottom: 1px solid var(--border-color);
-position: sticky;
-top: 0;
-z-index: 100;
-padding: 14px 16px;
-}
-​.header-container {
-max-width: 960px;
-margin: 0 auto;
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 12px;
-}
-​.logo-area {
-display: flex;
-align-items: center;
-gap: 10px;
-cursor: pointer;
-}
-​.logo-badge {
-width: 38px;
-height: 38px;
-background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-color: white;
-border-radius: 10px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: 900;
-font-size: 1.2rem;
-box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-}
-​.logo-text h1 {
-font-size: 1.25rem;
-font-weight: 800;
-color: var(--text-main);
-line-height: 1.2;
-}
-​.logo-text span {
-font-size: 0.75rem;
-color: var(--text-muted);
-display: block;
-}
-​.header-actions {
-display: flex;
-align-items: center;
-gap: 8px;
-}
-​.header-wa-btn {
-background-color: var(--primary-light);
-color: var(--primary-dark);
-padding: 7px 12px;
-border-radius: 8px;
-text-decoration: none;
-font-size: 0.82rem;
-font-weight: 700;
-display: flex;
-align-items: center;
-gap: 5px;
-transition: all 0.2s;
-}
-​.header-wa-btn:hover {
-background-color: var(--primary);
-color: white;
-}
-​/* الحاوية الرئيسية */
-.container {
-max-width: 960px;
-margin: 20px auto;
-padding: 0 16px;
-}
-​/* شريط البحث الشامل في الرئيسية */
-.global-search-box {
-background: var(--card-bg);
-padding: 16px;
-border-radius: 14px;
-border: 1px solid var(--border-color);
-box-shadow: var(--shadow-sm);
-margin-bottom: 22px;
-}
-​.search-wrapper {
-position: relative;
-display: flex;
-align-items: center;
-}
-​.search-icon {
-position: absolute;
-right: 14px;
-color: var(--text-muted);
-pointer-events: none;
-display: flex;
-}
-​.search-input {
-width: 100%;
-padding: 11px 42px 11px 36px;
-border: 1.5px solid var(--border-color);
-border-radius: 10px;
-outline: none;
-font-size: 0.92rem;
-background: #f8fafc;
-color: var(--text-main);
-transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
-}
-​.search-input:focus {
-border-color: var(--primary);
-background: var(--card-bg);
-box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
-}
-​.clear-search {
-position: absolute;
-left: 12px;
-background: #94a3b8;
-color: white;
-border: none;
-width: 20px;
-height: 20px;
-border-radius: 50%;
-font-size: 0.75rem;
-cursor: pointer;
-display: none;
-align-items: center;
-justify-content: center;
-}
-​.clear-search.visible {
-display: flex;
-}
-​/* رؤوس الأقسام */
-.section-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 16px;
-gap: 10px;
-}
-​.section-title {
-font-size: 1.15rem;
-font-weight: 800;
-color: var(--text-main);
-display: flex;
-align-items: center;
-gap: 8px;
-}
-​.count-pill {
-background: #e2e8f0;
-color: var(--text-muted);
-font-size: 0.78rem;
-font-weight: 700;
-padding: 2px 9px;
-border-radius: 20px;
-}
-​.back-btn {
-background: var(--card-bg);
-border: 1px solid var(--border-color);
-color: var(--text-main);
-padding: 7px 14px;
-border-radius: 9px;
-font-size: 0.85rem;
-font-weight: 700;
-cursor: pointer;
-display: inline-flex;
-align-items: center;
-gap: 6px;
-box-shadow: var(--shadow-sm);
-transition: all 0.2s;
-}
-​.back-btn:hover {
-background: #f8fafc;
-border-color: var(--primary);
-color: var(--primary);
-}
-​/* شبكة الأقسام */
-.categories-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 14px;
-}
-​@media (min-width: 640px) {
-.categories-grid {
-grid-template-columns: repeat(3, 1fr);
-gap: 18px;
-}
-}
-​@media (min-width: 860px) {
-.categories-grid {
-grid-template-columns: repeat(4, 1fr);
-}
-}
-​.category-card {
-background: var(--card-bg);
-border-radius: 14px;
-overflow: hidden;
-border: 1px solid var(--border-color);
-box-shadow: var(--shadow-sm);
-cursor: pointer;
-transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-display: flex;
-flex-direction: column;
-position: relative;
-}
-​.category-card:hover {
-transform: translateY(-4px);
-box-shadow: var(--shadow-lg);
-border-color: var(--primary);
-}
-​.category-img-wrap {
-width: 100%;
-height: 125px;
-position: relative;
-background-color: #f8fafc;
-overflow: hidden;
-}
-​.category-img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.3s ease;
-}
-​.category-card:hover .category-img {
-transform: scale(1.05);
-}
-​.category-badge {
-position: absolute;
-top: 8px;
-left: 8px;
-background: rgba(30, 41, 59, 0.82);
-backdrop-filter: blur(4px);
-color: white;
-font-size: 0.72rem;
-font-weight: 700;
-padding: 3px 8px;
-border-radius: 20px;
-}
-​.category-name {
-padding: 12px 10px;
-text-align: center;
-font-size: 0.95rem;
-font-weight: 800;
-color: var(--text-main);
-background: var(--card-bg);
-border-top: 1px solid var(--border-color);
-flex: 1;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-​/* شريط التنقل السريع بين الأقسام داخل صفحة المنتجات */
-.quick-cats-bar {
-display: flex;
-gap: 8px;
-overflow-x: auto;
-padding-bottom: 10px;
-margin-bottom: 14px;
-scrollbar-width: none;
-}
-​.quick-cats-bar::-webkit-scrollbar {
-display: none;
-}
-​.quick-cat-chip {
-background: var(--card-bg);
-border: 1px solid var(--border-color);
-color: var(--text-muted);
-padding: 6px 14px;
-border-radius: 20px;
-font-size: 0.82rem;
-font-weight: 700;
-white-space: nowrap;
-cursor: pointer;
-transition: all 0.2s;
-}
-​.quick-cat-chip.active {
-background: var(--primary);
-color: white;
-border-color: var(--primary);
-box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25);
-}
-​/* قائمة المنتجات */
-.products-list {
-display: flex;
-flex-direction: column;
-gap: 10px;
-}
-​@media (min-width: 700px) {
-.products-list {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 12px;
-}
-}
-​.product-card {
-background: var(--card-bg);
-border-radius: 13px;
-overflow: hidden;
-border: 1px solid var(--border-color);
-display: flex;
-align-items: center;
-padding: 10px;
-gap: 12px;
-box-shadow: var(--shadow-sm);
-transition: border-color 0.2s, box-shadow 0.2s;
-}
-​.product-card:hover {
-border-color: var(--primary);
-box-shadow: var(--shadow-md);
-}
-​.img-container {
-width: 82px;
-height: 82px;
-min-width: 82px;
-background-color: #f8fafc;
-border-radius: 10px;
-overflow: hidden;
-display: flex;
-align-items: center;
-justify-content: center;
-border: 1px solid var(--border-color);
-position: relative;
-}
-​.img-container img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-}
-​.no-img-placeholder {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-color: #94a3b8;
-font-size: 0.7rem;
-text-align: center;
-padding: 4px;
-}
-​.product-details {
-display: flex;
-flex: 1;
-align-items: center;
-justify-content: space-between;
-gap: 8px;
-min-width: 0;
-}
-​.info-area {
-flex: 1;
-min-width: 0;
-}
-​.product-cat-tag {
-display: inline-block;
-font-size: 0.7rem;
-font-weight: 700;
-color: var(--primary-dark);
-background: var(--primary-light);
-padding: 1px 7px;
-border-radius: 5px;
-margin-bottom: 4px;
-}
-​.product-title {
-font-size: 0.94rem;
-font-weight: 700;
-color: var(--text-main);
-word-wrap: break-word;
-line-height: 1.35;
-}
-​.whatsapp-btn {
-display: inline-flex;
-align-items: center;
-gap: 5px;
-background-color: var(--whatsapp);
-color: white;
-text-align: center;
-padding: 8px 12px;
-border-radius: 9px;
-text-decoration: none;
-font-weight: 700;
-font-size: 0.8rem;
-white-space: nowrap;
-box-shadow: 0 2px 5px rgba(37, 211, 102, 0.25);
-transition: background-color 0.2s, transform 0.1s;
-}
-​.whatsapp-btn:hover {
-background-color: var(--whatsapp-dark);
-}
-​.whatsapp-btn:active {
-transform: scale(0.97);
-}
-​/* زر الصعود للأعلى */
-.scroll-top-btn {
-position: fixed;
-bottom: 20px;
-left: 20px;
-width: 42px;
-height: 42px;
-border-radius: 50%;
-background: var(--accent);
-color: white;
-border: none;
-box-shadow: var(--shadow-lg);
-cursor: pointer;
-display: none;
-align-items: center;
-justify-content: center;
-z-index: 90;
-font-size: 1.1rem;
-}
-​.scroll-top-btn.visible {
-display: flex;
-}
-​.empty-state {
-grid-column: 1 / -1;
-text-align: center;
-padding: 40px 20px;
-background: var(--card-bg);
-border-radius: 12px;
-border: 1px dashed var(--border-color);
-color: var(--text-muted);
-}
-​.hidden {
-display: none !important;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مركز حارم | كتالوج المنتجات الشامل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent: #1e293b;
+      --bg-color: #f1f5f9;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #cbd5e1;
+      --whatsapp: #25d366;
+      --whatsapp-dark: #128c7e;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Tajawal', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding-bottom: 60px;
+      line-height: 1.5;
+    }
+
+    /* الهيدر العلوي */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 16px;
+    }
+
+    .header-container {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .logo-badge {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-wa-btn {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 7px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .header-wa-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* الحاوية الرئيسية */
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    /* شريط البحث الشامل في الرئيسية */
+    .global-search-box {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 22px;
+    }
+
+    .search-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 14px;
+      color: var(--text-muted);
+      pointer-events: none;
+      display: flex;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 11px 42px 11px 36px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 10px;
+      outline: none;
+      font-size: 0.92rem;
+      background: #f8fafc;
+      color: var(--text-main);
+      transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      background: var(--card-bg);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .clear-search {
+      position: absolute;
+      left: 12px;
+      background: #94a3b8;
+      color: white;
+      border: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clear-search.visible {
+      display: flex;
+    }
+
+    /* رؤوس الأقسام */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 10px;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .count-pill {
+      background: #e2e8f0;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 20px;
+    }
+
+    .back-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: 9px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      background: #f8fafc;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* شبكة الأقسام */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width: 640px) {
+      .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+    }
+
+    @media (min-width: 860px) {
+      .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .category-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .category-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .category-img-wrap {
+      width: 100%;
+      height: 125px;
+      position: relative;
+      background-color: #f8fafc;
+      overflow: hidden;
+    }
+
+    .category-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .category-card:hover .category-img {
+      transform: scale(1.05);
+    }
+
+    .category-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(30, 41, 59, 0.82);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .category-name {
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-main);
+      background: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* شريط التنقل السريع بين الأقسام داخل صفحة المنتجات */
+    .quick-cats-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      scrollbar-width: none;
+    }
+
+    .quick-cats-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-cat-chip {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quick-cat-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25);
+    }
+
+    /* قائمة المنتجات */
+    .products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 700px) {
+      .products-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 13px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .img-container {
+      width: 82px;
+      height: 82px;
+      min-width: 82px;
+      background-color: #f8fafc;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .no-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 0.7rem;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .product-details {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .info-area {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .product-cat-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 1px 7px;
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+
+    .product-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--text-main);
+      word-wrap: break-word;
+      line-height: 1.35;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: var(--whatsapp);
+      color: white;
+      text-align: center;
+      padding: 8px 12px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(37, 211, 102, 0.25);
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: var(--whatsapp-dark);
+    }
+
+    .whatsapp-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* نافذة تكبير الصورة (Lightbox) */
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal img {
+      max-width: 95%;
+      max-height: 75vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      background: white;
+    }
+
+    .image-modal-caption {
+      color: white;
+      margin-top: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* زر الصعود للأعلى */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      border: none;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 90;
+      font-size: 1.1rem;
+    }
+
+    .scroll-top-btn.visible {
+      display: flex;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px dashed var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
-​<!-- الهيدر -->
-<header>
-<div class="header-container">
-<div class="logo-area" onclick="goHome()">
-<div class="logo-badge">ح</div>
-<div class="logo-text">
-<h1>مركز حارم</h1>
-<span>للتغليف والمواد البلاستيكية والمنزلية</span>
-</div>
-</div>
-<div class="header-actions">
-<a href="https://wa.me/963997371320" target="_blank" class="header-wa-btn">
-<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
-تواصل معنا
-</a>
-</div>
-</div>
-</header>
-​<div class="container">
-​<!-- قسم العرض الرئيسي (الأقسام + البحث الشامل) -->
-<div id="categoriesView">
-<div class="global-search-box">
-<div class="search-wrapper">
-<span class="search-icon">
-<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-</span>
-<input type="text" id="globalSearchInput" class="search-input" placeholder="ابحث عن أي منتج بالاسم أو الرقم في كل الأقسام..." oninput="handleGlobalSearch()">
-<button type="button" id="clearGlobalSearch" class="clear-search" onclick="clearGlobalSearch()">✕</button>
-</div>
-</div>
-​<!-- نتائج البحث الشامل -->
-<div id="globalSearchResultsSection" class="hidden">
-<div class="section-header">
-<span class="section-title">نتائج البحث الشامل <span class="count-pill" id="globalResultsCount">0</span></span>
-</div>
-<div class="products-list" id="globalResultsGrid"></div>
-</div>
-​<!-- شبكة الأقسام -->
-<div id="categoriesMainSection">
-<div class="section-header">
-<span class="section-title">أقسام المتجر <span class="count-pill" id="totalProductsBadge"></span></span>
-</div>
-<div class="categories-grid" id="categoriesGrid"></div>
-</div>
-</div>
-​<!-- قسم عرض المنتجات داخل القسم -->
-<div id="productsView" class="hidden">
-<div class="section-header">
-<span class="section-title">
-<span id="currentCategoryTitle">المنتجات</span>
-<span class="count-pill" id="categoryProductsCount">0</span>
-</span>
-<button type="button" class="back-btn" onclick="goHome()">
-<span>→</span> كل الأقسام
-</button>
-</div>
-​<!-- شريط التنقل السريع بين الأقسام -->
-<div class="quick-cats-bar" id="quickCatsBar"></div>
-​<!-- بحث داخل القسم -->
-<div class="controls-bar">
-<div class="search-wrapper" style="width: 100%;">
-<span class="search-icon">
-<svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-</span>
-<input type="text" id="searchInput" class="search-input" placeholder="بحث سريع داخل هذا القسم..." oninput="filterProducts()">
-<button type="button" id="clearLocalSearch" class="clear-search" onclick="clearLocalSearch()">✕</button>
-</div>
-</div>
-​<div class="products-list" id="productsGrid"></div>
-</div>
-​</div>
-​<!-- زر الصعود للأعلى -->
-<button type="button" id="scrollTopBtn" class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="العودة للأعلى">↑</button>
-​<script>
-// ==========================================
-// 1. الإعدادات الأساسية
-// ==========================================
-const WHATSAPP_NUMBER = "963997371320";
-​// ==========================================
-// 2. قائمة الأقسام (10 أقسام رئيسية)
-// ==========================================
-let categories = [
-{ id: "01", name: "اكياس", image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg" },
-{ id: "02", name: "علب بلاستيك", image: "https://via.placeholder.com/300?text=Plastic+Boxes" },
-{ id: "03", name: "فلين", image: "https://via.placeholder.com/300?text=Foam" },
-{ id: "04", name: "كاسات كرتون+بلاستيك", image: "https://i.ibb.co/9HmgbDYc/MV-MG-20261025-121022.jpg" },
-{ id: "05", name: "ورق جميع انواعه", image: "https://via.placeholder.com/300?text=Paper" },
-{ id: "06", name: "لاصق", image: "https://via.placeholder.com/300?text=Tape" },
-{ id: "07", name: "مشمع و توابعه", image: "https://via.placeholder.com/300?text=Tablecloth" },
-{ id: "08", name: "معالق+شووك", image: "https://via.placeholder.com/300?text=Cutlery" },
-{ id: "09", name: "مستلزمات بيت", image: "https://via.placeholder.com/300?text=Home+Supplies" },
-{ id: "10", name: "منوعات أخرى", image: "https://via.placeholder.com/300?text=Other" }
-];
-​// ==========================================
-// 3. قائمة المنتجات
-// ==========================================
-let products = [
-// --- قسم الفلين (03) ---
-{ id: 1, categoryId: "03", name: "فلين مقطع", image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg", hidden: false },
-{ id: 115, categoryId: "03", name: "فلين زيرو لمسات", image: "", hidden: false },
-{ id: 116, categoryId: "03", name: "فلين س1", image: "", hidden: false },
-{ id: 117, categoryId: "03", name: "فلين س2", image: "", hidden: false },
-{ id: 156, categoryId: "03", name: "فلين وجبه مقطعه", image: "", hidden: false },
-{ id: 157, categoryId: "03", name: "فلين وجبه ساده", image: "", hidden: false },
-{ id: 158, categoryId: "03", name: "فلين بيتزا وصط 32 الوصي", image: "", hidden: false },
-​// --- قسم الأكياس (01) ---
-{ id: 3, categoryId: "01", name: "20# اكياس شيال نورس", image: "https://i.ibb.co/99SHh9vZ/MV-MG-20261025-151610.jpg" , hidden: false },
-{ id: 26, categoryId: "01", name: "122# اكياس زبالة ثاني", image: "", hidden: false },
-{ id: 28, categoryId: "01", name: "127# اكياس كريستال", image: "https://i.ibb.co/JwKqrdy2/MV-MG-20261025-213811.jpg", hidden: false },
-{ id: 51, categoryId: "01", name: "157# اكياس حراام 120/70", image: "", hidden: false },
-{ id: 52, categoryId: "01", name: "158# اكياس خبز", image: "", hidden: false },
-{ id: 83, categoryId: "01", name: "2# اكياس شيال سما", image: "", hidden: false },
-{ id: 84, categoryId: "01", name: "3# اكياس شفاف سما", image: "", hidden: false },
-{ id: 98, categoryId: "01", name: "22# اكياس ربطة نورس", image: "", hidden: false },
-{ id: 99, categoryId: "01", name: "23# اكياس سندويش نورس", image: "", hidden: false },
-{ id: 102, categoryId: "01", name: "26# اكياس مطبوع نورس", image: "", hidden: false },
-{ id: 103, categoryId: "01", name: "28# اكياس زبالة نورس", image: "", hidden: false },
-{ id: 106, categoryId: "01", name: "31# اكياس منقت ورد نورس", image: "", hidden: false },
-​// --- قسم اللاصق (06) ---
-{ id: 4, categoryId: "06", name: "100# لاصق بنى", image: "", hidden: false },
-{ id: 5, categoryId: "06", name: "101# لاصق ابيض", image: "", hidden: false },
-{ id: 6, categoryId: "06", name: "102# لاصق ورق", image: "", hidden: false },
-{ id: 7, categoryId: "06", name: "103# لاصق دبل شبك", image: "", hidden: false },
-{ id: 8, categoryId: "06", name: "104# لاصق دبل سادا", image: "", hidden: false },
-{ id: 9, categoryId: "06", name: "105# لاصق مدرسة", image: "", hidden: false },
-{ id: 15, categoryId: "06", name: "111# لاصق طيارة", image: "", hidden: false },
-{ id: 17, categoryId: "06", name: "113# لاصق عرض", image: "", hidden: false },
-{ id: 18, categoryId: "06", name: "114# لاصق شرشطرن ملون", image: "", hidden: false },
-{ id: 69, categoryId: "06", name: "180# لاصق صوبيا فضي", image: "", hidden: false },
-{ id: 70, categoryId: "06", name: "181# لاصق صوبيا اسود", image: "", hidden: false },
-{ id: 81, categoryId: "06", name: "194# لاصق مدرسة ص", image: "", hidden: false },
-{ id: 82, categoryId: "06", name: "195# لاصق لل ابواب", image: "", hidden: false },
-{ id: 155, categoryId: "06", name: "88# لاسق دلفين 40", image: "", hidden: false },
-{ id: 159, categoryId: "06", name: "95# لاسق اضدير", image: "", hidden: false },
-​// --- قسم علب بلاستيك (02) ---
-{ id: 10, categoryId: "02", name: "106 علبة بطاطا", image: "", hidden: false },
-{ id: 53, categoryId: "02", name: "159# صحن بلاستيك مستطيل 101 الكا", image: "", hidden: false },
-{ id: 54, categoryId: "02", name: "160# صحن بلاستيك مستطيل 102 الكا", image: "", hidden: false },
-{ id: 55, categoryId: "02", name: "161# صحن بلاستيك مستطيل 105 الكا", image: "", hidden: false },
-{ id: 56, categoryId: "02", name: "162# صحن بلاستيك مستطيل 119 الكا", image: "", hidden: false },
-{ id: 57, categoryId: "02", name: "163# صحن بلاستيك ١٧سم 164 الكا", image: "", hidden: false },
-{ id: 58, categoryId: "02", name: "164# صحن بلاستي٢١سم 166 الكا", image: "", hidden: false },
-{ id: 71, categoryId: "02", name: "182# علبة مربع ٢كيلو+غطا", image: "", hidden: false },
-{ id: 72, categoryId: "02", name: "183# علبة 16س 800غ+غطا", image: "", hidden: false },
-{ id: 73, categoryId: "02", name: "184# علبة 16س 1000غ+غطا", image: "", hidden: false },
-{ id: 74, categoryId: "02", name: "185# علبة 133 زمزم", image: "", hidden: false },
-{ id: 75, categoryId: "02", name: "186# علبة 134 زمزم", image: "", hidden: false },
-{ id: 76, categoryId: "02", name: "187# علبة م22 زمزم ثاني", image: "", hidden: false },
-{ id: 78, categoryId: "02", name: "189# علبة كاسات 411", image: "", hidden: false },
-{ id: 85, categoryId: "02", name: "4# علبة 2 كيلو بدر", image: "", hidden: false },
-{ id: 86, categoryId: "02", name: "5# علبة 1 كيلو بدر", image: "", hidden: false },
-{ id: 87, categoryId: "02", name: "6# علبة 500غ شفاف بدر", image: "", hidden: false },
-{ id: 88, categoryId: "02", name: "7# علبة حبة رمان بدر", image: "", hidden: false },
-{ id: 89, categoryId: "02", name: "9# علبة حمص 175 بدر", image: "", hidden: false },
-{ id: 90, categoryId: "02", name: "10# علبة حمص 125غ اسود بدر", image: "", hidden: false },
-{ id: 131, categoryId: "02", name: "63# علبة بلاستيك 1000 مسح زمزم131", image: "", hidden: false },
-{ id: 132, categoryId: "02", name: "64# علبة بلاستيك 2500 عالي زمزم", image: "", hidden: false },
-{ id: 133, categoryId: "02", name: "65# علبة بلاستيك 1500 مسح زمزم", image: "", hidden: false },
-{ id: 134, categoryId: "02", name: "66# علبة بلاستيك 600 زمزم", image: "", hidden: false },
-{ id: 135, categoryId: "02", name: "67# علبة بلاستيك سرفيس رباعي 124", image: "", hidden: false },
-{ id: 136, categoryId: "02", name: "68# علبة بلاستيك 250غ زمزم", image: "", hidden: false },
-{ id: 137, categoryId: "02", name: "69# علبة بلاستيك ثلاثي وجبة زمزم", image: "", hidden: false },
-{ id: 138, categoryId: "02", name: "70# علبة بلاستيك 150غ زمزم", image: "", hidden: false },
-{ id: 139, categoryId: "02", name: "71# علبة بلاستيك ثنائ وجبة زمزم", image: "", hidden: false },
-{ id: 140, categoryId: "02", name: "72# علبة بلاستيك 500غ زمزم", image: "", hidden: false },
-{ id: 141, categoryId: "02", name: "73# علبة بلاستيك 50غ زمزم", image: "", hidden: false },
-{ id: 142, categoryId: "02", name: "74# علبة بلاستيك 1000غ 22م زمزم", image: "", hidden: false },
-{ id: 143, categoryId: "02", name: "75# علبة بلاستيك 100غ زمزم", image: "", hidden: false },
-{ id: 144, categoryId: "02", name: "76# علبة بلاستيك سرفيس ثلاثي 143 زمزم", image: "", hidden: false },
-{ id: 145, categoryId: "02", name: "77# علبة بلاستيك سرفيس ثنائ 142 زمزم", image: "", hidden: false },
-{ id: 148, categoryId: "02", name: "80# علبة حبة رمان صغيرة جوهرة", image: "", hidden: false },
-{ id: 149, categoryId: "02", name: "81# علبة بلاستيك وجبة رباعي زمزم", image: "", hidden: false },
-{ id: 150, categoryId: "02", name: "82# علبة بلاستيك 1000 عالي زمزم", image: "", hidden: false },
-{ id: 151, categoryId: "02", name: "83# علبة بلاستيك 2000 مسح زمزم", image: "", hidden: false },
-{ id: 152, categoryId: "02", name: "84# علبة بلاستيك وجبة ساده زمزم", image: "", hidden: false },
-{ id: 153, categoryId: "02", name: "85# علبة بلاستيك 80غ زمزم", image: "", hidden: false },
-​// --- قسم كاسات كرتون+بلاستيك (04) ---
-{ id: 61, categoryId: "04", name: "167# كاسات 100مل بلاستيك بدر", image: "", hidden: false },
-{ id: 66, categoryId: "04", name: "177# كاسات 16 كوكتيل بلاستيك", image: "", hidden: false },
-{ id: 67, categoryId: "04", name: "178# كاسات 14 كوكتيل بلاستيك", image: "", hidden: false },
-{ id: 68, categoryId: "04", name: "179# غطا كاسات كوكتيل", image: "", hidden: false },
-{ id: 91, categoryId: "04", name: "11# كاسات 150 مل بلاستيك بدر", image: "", hidden: false },
-{ id: 92, categoryId: "04", name: "12# كاسات 200 مل بلاستيك بدر", image: "", hidden: false },
-{ id: 93, categoryId: "04", name: "13# كاسات 300 مل بلاستيك بدر", image: "", hidden: false },
-{ id: 123, categoryId: "04", name: "53# كاسات كرتون 9 ملون", image: "", hidden: false },
-{ id: 124, categoryId: "04", name: "55# كاسات كرتون 2.5", image: "", hidden: false },
-{ id: 125, categoryId: "04", name: "56# كاسات كرتون 9 اسود", image: "", hidden: false },
-{ id: 126, categoryId: "04", name: "57# كاسات كرتون 9 دهبي", image: "", hidden: false },
-{ id: 127, categoryId: "04", name: "58# كاسات كرتون 6.5 ملون", image: "", hidden: false },
-{ id: 128, categoryId: "04", name: "59# كاسات كرتون 6.5 اسود", image: "", hidden: false },
-{ id: 129, categoryId: "04", name: "60# كاسات كرتون اندومي 16", image: "", hidden: false },
-{ id: 130, categoryId: "04", name: "62# كاسات كرتون 12", image: "", hidden: false },
-{ id: 154, categoryId: "04", name: "87# كاسات كرتون 4 ملون", image: "", hidden: false },
-​// --- قسم ورق جميع انواعه (05) ---
-{ id: 23, categoryId: "05", name: "119# رول ورق سادة", image: "", hidden: false },
-{ id: 24, categoryId: "05", name: "120# اكياس ورق", image: "", hidden: false },
-{ id: 25, categoryId: "05", name: "121# ورق سندويش", image: "", hidden: false },
-{ id: 27, categoryId: "05", name: "126# صحن كرتون اويس", image: "", hidden: false },
-{ id: 29, categoryId: "05", name: "128# صحن ورق اويس", image: "", hidden: false },
-{ id: 80, categoryId: "05", name: "192# ورق نايلون الشهبا", image: "", hidden: false },
-{ id: 94, categoryId: "05", name: "14# صحن 22سم بلاستيك بدر", image: "", hidden: false },
-{ id: 95, categoryId: "05", name: "15# صحن 17سم بلاستيك بدر", image: "", hidden: false },
-{ id: 118, categoryId: "05", name: "48# قصدير منزلي", image: "", hidden: false },
-{ id: 119, categoryId: "05", name: "49# صحن كرتون مدور وش 1", image: "", hidden: false },
-{ id: 120, categoryId: "05", name: "50# صحن كرتون مدور وش 2", image: "", hidden: false },
-{ id: 121, categoryId: "05", name: "51# صحن كرتون مربع وش 1", image: "", hidden: false },
-{ id: 122, categoryId: "05", name: "52# صحن كرتون مربع وش 2", image: "", hidden: false },
-{ id: 147, categoryId: "05", name: "79# ورق زبده point", image: "", hidden: false },
-​// --- قسم مشمع و توابعه (07) ---
-{ id: 35, categoryId: "07", name: "134# رول توب ليزري", image: "", hidden: false },
-{ id: 36, categoryId: "07", name: "135# مشمع تاني", image: "", hidden: false },
-{ id: 37, categoryId: "07", name: "136# مشمع اول", image: "", hidden: false },
-{ id: 38, categoryId: "07", name: "137# 140/90 جلد مزغرف", image: "", hidden: false },
-{ id: 39, categoryId: "07", name: "138# جلد مدور صغير", image: "", hidden: false },
-{ id: 40, categoryId: "07", name: "139# رول دالتن مجلتن", image: "", hidden: false },
-{ id: 41, categoryId: "07", name: "140# مربع ليزري جلد 140/140", image: "", hidden: false },
-{ id: 42, categoryId: "07", name: "141# رول طويل ليزري سادة", image: "", hidden: false },
-{ id: 43, categoryId: "07", name: "142# رول طويل كريستال", image: "", hidden: false },
-{ id: 44, categoryId: "07", name: "143# رول طويل ليزري ملون", image: "", hidden: false },
-{ id: 45, categoryId: "07", name: "144# مفرش صواني", image: "", hidden: false },
-{ id: 46, categoryId: "07", name: "145# رول طويل مرخم", image: "", hidden: false },
-{ id: 49, categoryId: "07", name: "154# رول نايلون مطري ٢م", image: "", hidden: false },
-{ id: 50, categoryId: "07", name: "155# رول نايلون مطري ٥م", image: "", hidden: false },
-{ id: 100, categoryId: "07", name: "24# رول نورس مفارش صفرة", image: "", hidden: false },
-{ id: 101, categoryId: "07", name: "25# رول نورس زبالة نص كيلو", image: "", hidden: false },
-{ id: 104, categoryId: "07", name: "29# رول نورس نص كيلو مفارش صفرة", image: "", hidden: false },
-{ id: 146, categoryId: "07", name: "78# مفارش صفرة elite", image: "", hidden: false },
-​// --- قسم معالق+شووك (08) ---
-{ id: 109, categoryId: "08", name: "36# معالق شفاف", image: "", hidden: false },
-{ id: 110, categoryId: "08", name: "38# شوواك", image: "", hidden: false },
-{ id: 111, categoryId: "08", name: "40# معالق اسود", image: "", hidden: false },
-{ id: 112, categoryId: "08", name: "42# شواك اسود", image: "", hidden: false },
-{ id: 113, categoryId: "08", name: "43# عود تحريك خشب", image: "", hidden: false },
-​// --- قسم مستلزمات بيت (09) ---
-{ id: 11, categoryId: "09", name: "107# ملاقط غسيل بلاستيك طيارة", image: "", hidden: false },
-{ id: 12, categoryId: "09", name: "108# ملاقط غسيل خشب طيارة", image: "", hidden: false },
-{ id: 21, categoryId: "09", name: "117# كفوف جلي ماليزي", image: "", hidden: false },
-{ id: 30, categoryId: "09", name: "129# مسكات كف", image: "", hidden: false },
-{ id: 31, categoryId: "09", name: "130# مسكات بشكير", image: "", hidden: false },
-{ id: 32, categoryId: "09", name: "131# مريول مطببع", image: "", hidden: false },
-{ id: 33, categoryId: "09", name: "132# رف براد", image: "", hidden: false },
-{ id: 48, categoryId: "09", name: "146# مريول بشكير", image: "", hidden: false },
-{ id: 59, categoryId: "09", name: "165# مساحه قطن ريم", image: "", hidden: false },
-​// --- قسم منوعات أخرى (10) ---
-{ id: 13, categoryId: "10", name: "109# شريط ترطيبط ملون", image: "", hidden: false },
-{ id: 14, categoryId: "10", name: "110# جلي X Lكفوف", image: "", hidden: false },
-{ id: 20, categoryId: "10", name: "116# اعواد شيش خشب", image: "", hidden: false },
-{ id: 60, categoryId: "10", name: "166# رول زبالة ثاني", image: "", hidden: false },
-{ id: 62, categoryId: "10", name: "173# اكياس شفاف بهارات", image: "", hidden: false },
-{ id: 63, categoryId: "10", name: "174# رول كاشير", image: "", hidden: false },
-{ id: 64, categoryId: "10", name: "175# حبال ربط ص", image: "", hidden: false },
-{ id: 65, categoryId: "10", name: "176# حبال ربط ك", image: "", hidden: false },
-{ id: 77, categoryId: "10", name: "188# كفوف شفافة", image: "", hidden: false },
-{ id: 79, categoryId: "10", name: "190# اكياس الخلاص", image: "", hidden: false },
-{ id: 96, categoryId: "10", name: "16# شلمون 6م شفاف بدر", image: "", hidden: false },
-{ id: 97, categoryId: "10", name: "17# شلمون كوكتيل 8مل طويل ملونبدر", image: "", hidden: false },
-{ id: 105, categoryId: "10", name: "30# رول الحلاق زباله", image: "", hidden: false },
-{ id: 107, categoryId: "10", name: "32# ستريش", image: "", hidden: false },
-{ id: 108, categoryId: "10", name: "33# كفوف اسود", image: "", hidden: false },
-{ id: 114, categoryId: "10", name: "44# كلينك", image: "", hidden: false }
-];
-​let activeCategory = null;
-​// خريطة أسماء الأقسام للوصول السريع
-const categoryMap = {};
-categories.forEach(c => categoryMap[c.id] = c.name);
-​// حساب عدد المنتجات الظاهرة لكل قسم
-function getCategoryCount(catId) {
-return products.filter(p => p.categoryId === catId && p.hidden !== true).length;
-}
-​// رسم الأقسام في الرئيسية
-function renderCategories() {
-const grid = document.getElementById('categoriesGrid');
-grid.innerHTML = '';
-​const totalVisible = products.filter(p => p.hidden !== true).length;
-document.getElementById('totalProductsBadge').textContent = ${totalVisible} صنف;
-​categories.forEach(cat => {
-const count = getCategoryCount(cat.id);
-const card = document.createElement('div');
-card.className = 'category-card';
-card.onclick = () => selectCategory(cat.id, cat.name);
-card.innerHTML = <div class="category-img-wrap"> <img src="${cat.image}" class="category-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300x160/f8fafc/64748b?text=${encodeURIComponent(cat.name)}'"> <span class="category-badge">${count} صنف</span> </div> <div class="category-name">${cat.name}</div>;
-grid.appendChild(card);
-});
-}
-​// رسم شريط التنقل السريع بين الأقسام
-function renderQuickCategoriesBar() {
-const bar = document.getElementById('quickCatsBar');
-bar.innerHTML = '';
-categories.forEach(cat => {
-const chip = document.createElement('button');
-chip.type = 'button';
-chip.className = 'quick-cat-chip' + (cat.id === activeCategory ? ' active' : '');
-chip.textContent = cat.name;
-chip.onclick = () => selectCategory(cat.id, cat.name, false);
-bar.appendChild(chip);
-​if (cat.id === activeCategory) {
-setTimeout(() => chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }), 50);
-}
-});
-}
-​// اختيار قسم معين
-function selectCategory(catId, catName, pushHistory = true) {
-activeCategory = catId;
-document.getElementById('currentCategoryTitle').textContent = catName;
-document.getElementById('categoriesView').classList.add('hidden');
-document.getElementById('productsView').classList.remove('hidden');
-document.getElementById('searchInput').value = '';
-document.getElementById('clearLocalSearch').classList.remove('visible');
-​renderQuickCategoriesBar();
-renderProducts();
-window.scrollTo(0, 0);
-​if (pushHistory) {
-history.pushState({ view: 'products', category: catId, name: catName }, '', '');
-}
-}
-​// العودة للرئيسية
-function showCategories() {
-activeCategory = null;
-document.getElementById('productsView').classList.add('hidden');
-document.getElementById('categoriesView').classList.remove('hidden');
-window.scrollTo(0, 0);
-}
-​function goHome() {
-clearGlobalSearch();
-showCategories();
-history.pushState({ view: 'home' }, '', '');
-}
-​window.onpopstate = function(event) {
-if (event.state && event.state.view === 'products') {
-selectCategory(event.state.category, event.state.name, false);
-} else {
-showCategories();
-}
-};
-​// بناء بطاقة منتج
-function createProductCard(p, showCategoryTag = false) {
-const catName = categoryMap[p.categoryId] || '';
-const msg = encodeURIComponent(`السلام عليكم مركز حارم، استفسار عن توفر وسعر المنتج:
-​الصنف: {p.name}{catName ? `
-​القسم: ${catName} : ''});
-const waUrl = https://wa.me/${WHATSAPP_NUMBER}?text=${msg};
-​const card = document.createElement('div');
-card.className = 'product-card';
-​const hasImage = p.image && p.image.trim() !== '';
-const imgHtml = hasImage
-? <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'no-img-placeholder\'>بدون صورة</div>'">
-: <div class="no-img-placeholder"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:2px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>بدون صورة</div>;
-​card.innerHTML = <div class="img-container"> ${imgHtml} </div> <div class="product-details"> <div class="info-area"> ${showCategoryTag && catName ?<span class="product-cat-tag">${catName}</span>: ''} <div class="product-title">${p.name}</div> </div> <div class="action-area"> <a href="${waUrl}" target="_blank" class="whatsapp-btn"> <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg> استفسار </a> </div> </div>;
-return card;
-}
-​// رسم المنتجات داخل القسم المختار
-function renderProducts(searchQuery = '') {
-const grid = document.getElementById('productsGrid');
-grid.innerHTML = '';
-​let list = products.filter(p => p.categoryId === activeCategory && p.hidden !== true);
-​if (searchQuery) {
-list = list.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
-}
-​document.getElementById('categoryProductsCount').textContent = ${list.length} صنف;
-​if (list.length === 0) {
-grid.innerHTML = '<div class="empty-state">لا توجد منتجات مطابقة لبحثك في هذا القسم حالياً.</div>';
-return;
-}
-​list.forEach(p => {
-grid.appendChild(createProductCard(p, false));
-});
-}
-​// فلترة البحث داخل القسم
-function filterProducts() {
-const input = document.getElementById('searchInput');
-const clearBtn = document.getElementById('clearLocalSearch');
-const query = input.value.trim();
-​if (query.length > 0) {
-clearBtn.classList.add('visible');
-} else {
-clearBtn.classList.remove('visible');
-}
-​renderProducts(query);
-}
-​function clearLocalSearch() {
-document.getElementById('searchInput').value = '';
-document.getElementById('clearLocalSearch').classList.remove('visible');
-renderProducts('');
-}
-​// البحث الشامل في كل الأقسام
-function handleGlobalSearch() {
-const input = document.getElementById('globalSearchInput');
-const clearBtn = document.getElementById('clearGlobalSearch');
-const resultsSection = document.getElementById('globalSearchResultsSection');
-const categoriesSection = document.getElementById('categoriesMainSection');
-const resultsGrid = document.getElementById('globalResultsGrid');
-const query = input.value.trim();
-​if (query.length > 0) {
-clearBtn.classList.add('visible');
-categoriesSection.classList.add('hidden');
-resultsSection.classList.remove('hidden');
-​const matches = products.filter(p => p.hidden !== true && p.name.toLowerCase().includes(query.toLowerCase()));
-document.getElementById('globalResultsCount').textContent = ${matches.length} صنف;
-resultsGrid.innerHTML = '';
-​if (matches.length === 0) {
-resultsGrid.innerHTML = '<div class="empty-state">لم يتم العثور على أي منتج بهذا الاسم في جميع الأقسام.</div>';
-} else {
-matches.forEach(p => {
-resultsGrid.appendChild(createProductCard(p, true));
-});
-}
-} else {
-clearBtn.classList.remove('visible');
-resultsSection.classList.add('hidden');
-categoriesSection.classList.remove('hidden');
-}
-}
-​function clearGlobalSearch() {
-document.getElementById('globalSearchInput').value = '';
-document.getElementById('clearGlobalSearch').classList.remove('visible');
-document.getElementById('globalSearchResultsSection').classList.add('hidden');
-document.getElementById('categoriesMainSection').classList.remove('hidden');
-}
-​// إظهار زر الصعود للأعلى عند التمرير
-window.addEventListener('scroll', () => {
-const btn = document.getElementById('scrollTopBtn');
-if (window.scrollY > 300) {
-btn.classList.add('visible');
-} else {
-btn.classList.remove('visible');
-}
-});
-​history.replaceState({ view: 'home' }, '', '');
-renderCategories();
-</script>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area" onclick="goHome()">
+        <div class="logo-badge">ح</div>
+        <div class="logo-text">
+          <h1>مركز حارم</h1>
+          <span>للتغليف والمواد البلاستيكية والمنزلية</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="https://wa.me/963997371320" target="_blank" class="header-wa-btn">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+          تواصل معنا
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- قسم العرض الرئيسي (الأقسام + البحث الشامل) -->
+    <div id="categoriesView">
+      <div class="global-search-box">
+        <div class="search-wrapper">
+          <span class="search-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <input type="text" id="globalSearchInput" class="search-input" placeholder="ابحث عن أي منتج بالاسم أو الرقم في كل الأقسام..." oninput="handleGlobalSearch()">
+          <button type="button" id="clearGlobalSearch" class="clear-search" onclick="clearGlobalSearch()">✕</button>
+        </div>
+      </div>
+
+      <!-- نتائج البحث الشامل -->
+      <div id="globalSearchResultsSection" class="hidden">
+        <div class="section-header">
+          <span class="section-title">نتائج البحث الشامل <span class="count-pill" id="globalResultsCount">0</span></span>
+        </div>
+        <div class="products-list" id="globalResultsGrid"></div>
+      </div>
+
+      <!-- شبكة الأقسام -->
+      <div id="categoriesMainSection">
+        <div class="section-header">
+          <span class="section-title">أقسام المتجر <span class="count-pill" id="totalProductsBadge"></span></span>
+        </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+      </div>
+    </div>
+
+    <!-- قسم عرض المنتجات داخل القسم -->
+    <div id="productsView" class="hidden">
+      <div class="section-header">
+        <span class="section-title">
+          <span id="currentCategoryTitle">المنتجات</span>
+          <span class="count-pill" id="categoryProductsCount">0</span>
+        </span>
+        <button type="button" class="back-btn" onclick="goHome()">
+          <span>→</span> كل الأقسام
+        </button>
+      </div>
+
+      <!-- شريط التنقل السريع بين الأقسام -->
+      <div class="quick-cats-bar" id="quickCatsBar"></div>
+
+      <!-- بحث داخل القسم -->
+      <div class="controls-bar">
+        <div class="search-wrapper" style="width: 100%;">
+          <span class="search-icon">
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <input type="text" id="searchInput" class="search-input" placeholder="بحث سريع داخل هذا القسم..." oninput="filterProducts()">
+          <button type="button" id="clearLocalSearch" class="clear-search" onclick="clearLocalSearch()">✕</button>
+        </div>
+      </div>
+
+      <div class="products-list" id="productsGrid"></div>
+    </div>
+
+  </div>
+
+  <!-- نافذة تكبير الصورة -->
+  <div id="imageModal" class="image-modal hidden" onclick="closeImageModal()">
+    <button type="button" class="close-modal-btn" onclick="closeImageModal()">✕</button>
+    <img id="modalImage" src="" alt="صورة المنتج" onclick="event.stopPropagation()">
+    <div id="modalCaption" class="image-modal-caption"></div>
+  </div>
+
+  <!-- زر الصعود للأعلى -->
+  <button type="button" id="scrollTopBtn" class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="العودة للأعلى">↑</button>
+
+  <script>
+    // ==========================================
+    // 1. الإعدادات الأساسية
+    // ==========================================
+    const WHATSAPP_NUMBER = "963997371320";
+
+    // ==========================================
+    // 2. قائمة الأقسام (10 أقسام رئيسية)
+    // ==========================================
+    let categories = [
+      { id: "01", name: "اكياس", image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg" },
+      { id: "02", name: "علب بلاستيك", image: "https://via.placeholder.com/300?text=Plastic+Boxes" },
+      { id: "03", name: "فلين", image: "https://via.placeholder.com/300?text=Foam" },
+      { id: "04", name: "كاسات كرتون+بلاستيك", image: "https://i.ibb.co/9HmgbDYc/MV-MG-20261025-121022.jpg" },
+      { id: "05", name: "ورق جميع انواعه", image: "https://via.placeholder.com/300?text=Paper" },
+      { id: "06", name: "لاصق", image: "https://via.placeholder.com/300?text=Tape" },
+      { id: "07", name: "مشمع و توابعه", image: "https://via.placeholder.com/300?text=Tablecloth" },
+      { id: "08", name: "معالق+شووك", image: "https://via.placeholder.com/300?text=Cutlery" },
+      { id: "09", name: "مستلزمات بيت", image: "https://via.placeholder.com/300?text=Home+Supplies" },
+      { id: "10", name: "منوعات أخرى", image: "https://via.placeholder.com/300?text=Other" }
+    ];
+
+    // ==========================================
+    // 3. قائمة المنتجات
+    // ==========================================
+    let products = [
+      // --- قسم الفلين (03) ---
+      { id: 1, categoryId: "03", name: "فلين مقطع", image: "https://i.ibb.co/4wRmsQRs/IMG-20261025-WA0000.jpg", hidden: false }, 
+      { id: 115, categoryId: "03", name: "فلين زيرو لمسات", image: "", hidden: false },
+      { id: 116, categoryId: "03", name: "فلين س1", image: "", hidden: false },
+      { id: 117, categoryId: "03", name: "فلين س2", image: "", hidden: false },
+      { id: 156, categoryId: "03", name: "فلين وجبه مقطعه", image: "", hidden: false },
+      { id: 157, categoryId: "03", name: "فلين وجبه ساده", image: "", hidden: false },
+      { id: 158, categoryId: "03", name: "فلين بيتزا وصط 32 الوصي", image: "", hidden: false },
+
+      // --- قسم الأكياس (01) ---
+      { id: 3, categoryId: "01", name: "20# اكياس شيال نورس", image: "https://i.ibb.co/99SHh9vZ/MV-MG-20261025-151610.jpg" , hidden: false },
+      { id: 26, categoryId: "01", name: "122# اكياس زبالة ثاني", image: "", hidden: false },
+      { id: 28, categoryId: "01", name: "127# اكياس كريستال", image: "https://i.ibb.co/JwKqrdy2/MV-MG-20261025-213811.jpg", hidden: false },
+      { id: 51, categoryId: "01", name: "157# اكياس حراام 120/70", image: "", hidden: false },
+      { id: 52, categoryId: "01", name: "158# اكياس خبز", image: "", hidden: false },
+      { id: 83, categoryId: "01", name: "2# اكياس شيال سما", image: "", hidden: false },
+      { id: 84, categoryId: "01", name: "3# اكياس شفاف سما", image: "", hidden: false },
+      { id: 98, categoryId: "01", name: "22# اكياس ربطة نورس", image: "", hidden: false },
+      { id: 99, categoryId: "01", name: "23# اكياس سندويش نورس", image: "", hidden: false },
+      { id: 102, categoryId: "01", name: "26# اكياس مطبوع نورس", image: "", hidden: false },
+      { id: 103, categoryId: "01", name: "28# اكياس زبالة نورس", image: "", hidden: false },
+      { id: 106, categoryId: "01", name: "31# اكياس منقت ورد نورس", image: "", hidden: false },
+
+      // --- قسم اللاصق (06) ---
+      { id: 4, categoryId: "06", name: "100# لاصق بنى", image: "", hidden: false },
+      { id: 5, categoryId: "06", name: "101# لاصق ابيض", image: "", hidden: false },
+      { id: 6, categoryId: "06", name: "102# لاصق ورق", image: "", hidden: false },
+      { id: 7, categoryId: "06", name: "103# لاصق دبل شبك", image: "", hidden: false },
+      { id: 8, categoryId: "06", name: "104# لاصق دبل سادا", image: "", hidden: false },
+      { id: 9, categoryId: "06", name: "105# لاصق مدرسة", image: "", hidden: false },
+      { id: 15, categoryId: "06", name: "111# لاصق طيارة", image: "", hidden: false },
+      { id: 17, categoryId: "06", name: "113# لاصق عرض", image: "", hidden: false },
+      { id: 18, categoryId: "06", name: "114# لاصق شرشطرن ملون", image: "", hidden: false },
+      { id: 69, categoryId: "06", name: "180# لاصق صوبيا فضي", image: "", hidden: false },
+      { id: 70, categoryId: "06", name: "181# لاصق صوبيا اسود", image: "", hidden: false },
+      { id: 81, categoryId: "06", name: "194# لاصق مدرسة ص", image: "", hidden: false },
+      { id: 82, categoryId: "06", name: "195# لاصق لل ابواب", image: "", hidden: false },
+      { id: 155, categoryId: "06", name: "88# لاسق دلفين 40", image: "", hidden: false },
+      { id: 159, categoryId: "06", name: "95# لاسق اضدير", image: "", hidden: false },
+
+      // --- قسم علب بلاستيك (02) ---
+      { id: 10, categoryId: "02", name: "106 علبة بطاطا", image: "", hidden: false },
+      { id: 53, categoryId: "02", name: "159# صحن بلاستيك مستطيل 101 الكا", image: "", hidden: false },
+      { id: 54, categoryId: "02", name: "160# صحن بلاستيك مستطيل 102 الكا", image: "", hidden: false },
+      { id: 55, categoryId: "02", name: "161# صحن بلاستيك مستطيل 105 الكا", image: "", hidden: false },
+      { id: 56, categoryId: "02", name: "162# صحن بلاستيك مستطيل 119 الكا", image: "", hidden: false },
+      { id: 57, categoryId: "02", name: "163# صحن بلاستيك ١٧سم 164 الكا", image: "", hidden: false },
+      { id: 58, categoryId: "02", name: "164# صحن بلاستي٢١سم 166 الكا", image: "", hidden: false },
+      { id: 71, categoryId: "02", name: "182# علبة مربع ٢كيلو+غطا", image: "", hidden: false },
+      { id: 72, categoryId: "02", name: "183# علبة 16س 800غ+غطا", image: "", hidden: false },
+      { id: 73, categoryId: "02", name: "184# علبة 16س 1000غ+غطا", image: "", hidden: false },
+      { id: 74, categoryId: "02", name: "185# علبة 133 زمزم", image: "", hidden: false },
+      { id: 75, categoryId: "02", name: "186# علبة 134 زمزم", image: "", hidden: false },
+      { id: 76, categoryId: "02", name: "187# علبة م22 زمزم ثاني", image: "", hidden: false },
+      { id: 78, categoryId: "02", name: "189# علبة كاسات 411", image: "", hidden: false },
+      { id: 85, categoryId: "02", name: "4# علبة 2 كيلو بدر", image: "", hidden: false },
+      { id: 86, categoryId: "02", name: "5# علبة 1 كيلو بدر", image: "", hidden: false },
+      { id: 87, categoryId: "02", name: "6# علبة 500غ شفاف بدر", image: "", hidden: false },
+      { id: 88, categoryId: "02", name: "7# علبة حبة رمان بدر", image: "", hidden: false },
+      { id: 89, categoryId: "02", name: "9# علبة حمص 175 بدر", image: "", hidden: false },
+      { id: 90, categoryId: "02", name: "10# علبة حمص 125غ اسود بدر", image: "", hidden: false },
+      { id: 131, categoryId: "02", name: "63# علبة بلاستيك 1000 مسح زمزم131", image: "", hidden: false },
+      { id: 132, categoryId: "02", name: "64# علبة بلاستيك 2500 عالي زمزم", image: "", hidden: false },
+      { id: 133, categoryId: "02", name: "65# علبة بلاستيك 1500 مسح زمزم", image: "", hidden: false },
+      { id: 134, categoryId: "02", name: "66# علبة بلاستيك 600 زمزم", image: "", hidden: false },
+      { id: 135, categoryId: "02", name: "67# علبة بلاستيك سرفيس رباعي 124", image: "", hidden: false },
+      { id: 136, categoryId: "02", name: "68# علبة بلاستيك 250غ زمزم", image: "", hidden: false },
+      { id: 137, categoryId: "02", name: "69# علبة بلاستيك ثلاثي وجبة زمزم", image: "", hidden: false },
+      { id: 138, categoryId: "02", name: "70# علبة بلاستيك 150غ زمزم", image: "", hidden: false },
+      { id: 139, categoryId: "02", name: "71# علبة بلاستيك ثنائ وجبة زمزم", image: "", hidden: false },
+      { id: 140, categoryId: "02", name: "72# علبة بلاستيك 500غ زمزم", image: "", hidden: false },
+      { id: 141, categoryId: "02", name: "73# علبة بلاستيك 50غ زمزم", image: "", hidden: false },
+      { id: 142, categoryId: "02", name: "74# علبة بلاستيك 1000غ 22م زمزم", image: "", hidden: false },
+      { id: 143, categoryId: "02", name: "75# علبة بلاستيك 100غ زمزم", image: "", hidden: false },
+      { id: 144, categoryId: "02", name: "76# علبة بلاستيك سرفيس ثلاثي 143 زمزم", image: "", hidden: false },
+      { id: 145, categoryId: "02", name: "77# علبة بلاستيك سرفيس ثنائ 142 زمزم", image: "", hidden: false },
+      { id: 148, categoryId: "02", name: "80# علبة حبة رمان صغيرة جوهرة", image: "", hidden: false },
+      { id: 149, categoryId: "02", name: "81# علبة بلاستيك وجبة رباعي زمزم", image: "", hidden: false },
+      { id: 150, categoryId: "02", name: "82# علبة بلاستيك 1000 عالي زمزم", image: "", hidden: false },
+      { id: 151, categoryId: "02", name: "83# علبة بلاستيك 2000 مسح زمزم", image: "", hidden: false },
+      { id: 152, categoryId: "02", name: "84# علبة بلاستيك وجبة ساده زمزم", image: "", hidden: false },
+      { id: 153, categoryId: "02", name: "85# علبة بلاستيك 80غ زمزم", image: "", hidden: false },
+
+      // --- قسم كاسات كرتون+بلاستيك (04) ---
+      { id: 61, categoryId: "04", name: "167# كاسات 100مل بلاستيك بدر", image: "", hidden: false },
+      { id: 66, categoryId: "04", name: "177# كاسات 16 كوكتيل بلاستيك", image: "", hidden: false },
+      { id: 67, categoryId: "04", name: "178# كاسات 14 كوكتيل بلاستيك", image: "", hidden: false },
+      { id: 68, categoryId: "04", name: "179# غطا كاسات كوكتيل", image: "", hidden: false },
+      { id: 91, categoryId: "04", name: "11# كاسات 150 مل بلاستيك بدر", image: "", hidden: false },
+      { id: 92, categoryId: "04", name: "12# كاسات 200 مل بلاستيك بدر", image: "", hidden: false },
+      { id: 93, categoryId: "04", name: "13# كاسات 300 مل بلاستيك بدر", image: "", hidden: false },
+      { id: 123, categoryId: "04", name: "53# كاسات كرتون 9 ملون", image: "", hidden: false },
+      { id: 124, categoryId: "04", name: "55# كاسات كرتون 2.5", image: "", hidden: false },
+      { id: 125, categoryId: "04", name: "56# كاسات كرتون 9 اسود", image: "", hidden: false },
+      { id: 126, categoryId: "04", name: "57# كاسات كرتون 9 دهبي", image: "", hidden: false },
+      { id: 127, categoryId: "04", name: "58# كاسات كرتون 6.5 ملون", image: "", hidden: false },
+      { id: 128, categoryId: "04", name: "59# كاسات كرتون 6.5 اسود", image: "", hidden: false },
+      { id: 129, categoryId: "04", name: "60# كاسات كرتون اندومي 16", image: "", hidden: false },
+      { id: 130, categoryId: "04", name: "62# كاسات كرتون 12", image: "", hidden: false },
+      { id: 154, categoryId: "04", name: "87# كاسات كرتون 4 ملون", image: "", hidden: false },
+
+      // --- قسم ورق جميع انواعه (05) ---
+      { id: 23, categoryId: "05", name: "119# رول ورق سادة", image: "", hidden: false },
+      { id: 24, categoryId: "05", name: "120# اكياس ورق", image: "", hidden: false },
+      { id: 25, categoryId: "05", name: "121# ورق سندويش", image: "", hidden: false },
+      { id: 27, categoryId: "05", name: "126# صحن كرتون اويس", image: "", hidden: false },
+      { id: 29, categoryId: "05", name: "128# صحن ورق اويس", image: "", hidden: false },
+      { id: 80, categoryId: "05", name: "192# ورق نايلون الشهبا", image: "", hidden: false },
+      { id: 94, categoryId: "05", name: "14# صحن 22سم بلاستيك بدر", image: "", hidden: false },
+      { id: 95, categoryId: "05", name: "15# صحن 17سم بلاستيك بدر", image: "", hidden: false },
+      { id: 118, categoryId: "05", name: "48# قصدير منزلي", image: "", hidden: false },
+      { id: 119, categoryId: "05", name: "49# صحن كرتون مدور وش 1", image: "", hidden: false },
+      { id: 120, categoryId: "05", name: "50# صحن كرتون مدور وش 2", image: "", hidden: false },
+      { id: 121, categoryId: "05", name: "51# صحن كرتون مربع وش 1", image: "", hidden: false },
+      { id: 122, categoryId: "05", name: "52# صحن كرتون مربع وش 2", image: "", hidden: false },
+      { id: 147, categoryId: "05", name: "79# ورق زبده point", image: "", hidden: false },
+
+      // --- قسم مشمع و توابعه (07) ---
+      { id: 35, categoryId: "07", name: "134# رول توب ليزري", image: "", hidden: false },
+      { id: 36, categoryId: "07", name: "135# مشمع تاني", image: "", hidden: false },
+      { id: 37, categoryId: "07", name: "136# مشمع اول", image: "", hidden: false },
+      { id: 38, categoryId: "07", name: "137# 140/90 جلد مزغرف", image: "", hidden: false },
+      { id: 39, categoryId: "07", name: "138# جلد مدور صغير", image: "", hidden: false },
+      { id: 40, categoryId: "07", name: "139# رول دالتن مجلتن", image: "", hidden: false },
+      { id: 41, categoryId: "07", name: "140# مربع ليزري جلد 140/140", image: "", hidden: false },
+      { id: 42, categoryId: "07", name: "141# رول طويل ليزري سادة", image: "", hidden: false },
+      { id: 43, categoryId: "07", name: "142# رول طويل كريستال", image: "", hidden: false },
+      { id: 44, categoryId: "07", name: "143# رول طويل ليزري ملون", image: "", hidden: false },
+      { id: 45, categoryId: "07", name: "144# مفرش صواني", image: "", hidden: false },
+      { id: 46, categoryId: "07", name: "145# رول طويل مرخم", image: "", hidden: false },
+      { id: 49, categoryId: "07", name: "154# رول نايلون مطري ٢م", image: "", hidden: false },
+      { id: 50, categoryId: "07", name: "155# رول نايلون مطري ٥م", image: "", hidden: false },
+      { id: 100, categoryId: "07", name: "24# رول نورس مفارش صفرة", image: "", hidden: false },
+      { id: 101, categoryId: "07", name: "25# رول نورس زبالة نص كيلو", image: "", hidden: false },
+      { id: 104, categoryId: "07", name: "29# رول نورس نص كيلو مفارش صفرة", image: "", hidden: false },
+      { id: 146, categoryId: "07", name: "78# مفارش صفرة elite", image: "", hidden: false },
+
+      // --- قسم معالق+شووك (08) ---
+      { id: 109, categoryId: "08", name: "36# معالق شفاف", image: "", hidden: false },
+      { id: 110, categoryId: "08", name: "38# شوواك", image: "", hidden: false },
+      { id: 111, categoryId: "08", name: "40# معالق اسود", image: "", hidden: false },
+      { id: 112, categoryId: "08", name: "42# شواك اسود", image: "", hidden: false },
+      { id: 113, categoryId: "08", name: "43# عود تحريك خشب", image: "", hidden: false },
+
+      // --- قسم مستلزمات بيت (09) ---
+      { id: 11, categoryId: "09", name: "107# ملاقط غسيل بلاستيك طيارة", image: "", hidden: false },
+      { id: 12, categoryId: "09", name: "108# ملاقط غسيل خشب طيارة", image: "", hidden: false },
+      { id: 21, categoryId: "09", name: "117# كفوف جلي ماليزي", image: "", hidden: false },
+      { id: 30, categoryId: "09", name: "129# مسكات كف", image: "", hidden: false },
+      { id: 31, categoryId: "09", name: "130# مسكات بشكير", image: "", hidden: false },
+      { id: 32, categoryId: "09", name: "131# مريول مطببع", image: "", hidden: false },
+      { id: 33, categoryId: "09", name: "132# رف براد", image: "", hidden: false },
+      { id: 48, categoryId: "09", name: "146# مريول بشكير", image: "", hidden: false },
+      { id: 59, categoryId: "09", name: "165# مساحه قطن ريم", image: "", hidden: false },
+
+      // --- قسم منوعات أخرى (10) ---
+      { id: 13, categoryId: "10", name: "109# شريط ترطيبط ملون", image: "", hidden: false },
+      { id: 14, categoryId: "10", name: "110# جلي X Lكفوف", image: "", hidden: false },
+      { id: 20, categoryId: "10", name: "116# اعواد شيش خشب", image: "", hidden: false },
+      { id: 60, categoryId: "10", name: "166# رول زبالة ثاني", image: "", hidden: false },
+      { id: 62, categoryId: "10", name: "173# اكياس شفاف بهارات", image: "", hidden: false },
+      { id: 63, categoryId: "10", name: "174# رول كاشير", image: "", hidden: false },
+      { id: 64, categoryId: "10", name: "175# حبال ربط ص", image: "", hidden: false },
+      { id: 65, categoryId: "10", name: "176# حبال ربط ك", image: "", hidden: false },
+      { id: 77, categoryId: "10", name: "188# كفوف شفافة", image: "", hidden: false },
+      { id: 79, categoryId: "10", name: "190# اكياس الخلاص", image: "", hidden: false },
+      { id: 96, categoryId: "10", name: "16# شلمون 6م شفاف بدر", image: "", hidden: false },
+      { id: 97, categoryId: "10", name: "17# شلمون كوكتيل 8مل طويل ملونبدر", image: "", hidden: false },
+      { id: 105, categoryId: "10", name: "30# رول الحلاق زباله", image: "", hidden: false },
+      { id: 107, categoryId: "10", name: "32# ستريش", image: "", hidden: false },
+      { id: 108, categoryId: "10", name: "33# كفوف اسود", image: "", hidden: false },
+      { id: 114, categoryId: "10", name: "44# كلينك", image: "", hidden: false }
+    ];
+
+    let activeCategory = null;
+
+    // خريطة أسماء الأقسام للوصول السريع
+    const categoryMap = {};
+    categories.forEach(c => categoryMap[c.id] = c.name);
+
+    // حساب عدد المنتجات الظاهرة لكل قسم
+    function getCategoryCount(catId) {
+      return products.filter(p => p.categoryId === catId && p.hidden !== true).length;
+    }
+
+    // رسم الأقسام في الرئيسية
+    function renderCategories() {
+      const grid = document.getElementById('categoriesGrid');
+      grid.innerHTML = '';
+
+      const totalVisible = products.filter(p => p.hidden !== true).length;
+      document.getElementById('totalProductsBadge').textContent = `${totalVisible} صنف`;
+
+      categories.forEach(cat => {
+        const count = getCategoryCount(cat.id);
+        const card = document.createElement('div');
+        card.className = 'category-card';
+        card.onclick = () => selectCategory(cat.id, cat.name);
+        card.innerHTML = `
+          <div class="category-img-wrap">
+            <img src="${cat.image}" class="category-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300x160/f8fafc/64748b?text=${encodeURIComponent(cat.name)}'">
+            <span class="category-badge">${count} صنف</span>
+          </div>
+          <div class="category-name">${cat.name}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // رسم شريط التنقل السريع بين الأقسام
+    function renderQuickCategoriesBar() {
+      const bar = document.getElementById('quickCatsBar');
+      bar.innerHTML = '';
+      categories.forEach(cat => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'quick-cat-chip' + (cat.id === activeCategory ? ' active' : '');
+        chip.textContent = cat.name;
+        chip.onclick = () => selectCategory(cat.id, cat.name, false);
+        bar.appendChild(chip);
+
+        if (cat.id === activeCategory) {
+          setTimeout(() => chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }), 50);
+        }
+      });
+    }
+
+    // اختيار قسم معين
+    function selectCategory(catId, catName, pushHistory = true) {
+      activeCategory = catId;
+      document.getElementById('currentCategoryTitle').textContent = catName;
+      document.getElementById('categoriesView').classList.add('hidden');
+      document.getElementById('productsView').classList.remove('hidden');
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearLocalSearch').classList.remove('visible');
+
+      renderQuickCategoriesBar();
+      renderProducts();
+      window.scrollTo(0, 0);
+
+      if (pushHistory) {
+        history.pushState({ view: 'products', category: catId, name: catName }, '', '');
+      }
+    }
+
+    // العودة للرئيسية
+    function showCategories() {
+      activeCategory = null;
+      document.getElementById('productsView').classList.add('hidden');
+      document.getElementById('categoriesView').classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    function goHome() {
+      clearGlobalSearch();
+      showCategories();
+      history.pushState({ view: 'home' }, '', '');
+    }
+
+    window.onpopstate = function(event) {
+      if (event.state && event.state.view === 'products') {
+        selectCategory(event.state.category, event.state.name, false);
+      } else {
+        showCategories();
+      }
+    };
+
+    // بناء بطاقة منتج
+    function createProductCard(p, showCategoryTag = false) {
+      const catName = categoryMap[p.categoryId] || '';
+      const msg = encodeURIComponent(`السلام عليكم مركز حارم، استفسار عن توفر وسعر المنتج:
+- الصنف: ${p.name}${catName ? `
+- القسم: ${catName}` : ''}`);
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+
+      const card = document.createElement('div');
+      card.className = 'product-card';
+
+      const hasImage = p.image && p.image.trim() !== '';
+      const imgHtml = hasImage
+        ? `<img src="${p.image}" alt="${p.name}" loading="lazy" onclick="openImageModal('${p.image}', '${p.name.replace(/'/g, "\'")}')" onerror="this.parentElement.innerHTML='<div class=\'no-img-placeholder\'>بدون صورة</div>'">`
+        : `<div class="no-img-placeholder"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:2px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>بدون صورة</div>`;
+
+      card.innerHTML = `
+        <div class="img-container" ${!hasImage ? 'style="cursor:default;"' : ''}>
+          ${imgHtml}
+        </div>
+        <div class="product-details">
+          <div class="info-area">
+            ${showCategoryTag && catName ? `<span class="product-cat-tag">${catName}</span>` : ''}
+            <div class="product-title">${p.name}</div>
+          </div>
+          <div class="action-area">
+            <a href="${waUrl}" target="_blank" class="whatsapp-btn">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+              استفسار
+            </a>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    // رسم المنتجات داخل القسم المختار
+    function renderProducts(searchQuery = '') {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = '';
+
+      let list = products.filter(p => p.categoryId === activeCategory && p.hidden !== true);
+
+      if (searchQuery) {
+        list = list.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      }
+
+      document.getElementById('categoryProductsCount').textContent = `${list.length} صنف`;
+
+      if (list.length === 0) {
+        grid.innerHTML = '<div class="empty-state">لا توجد منتجات مطابقة لبحثك في هذا القسم حالياً.</div>';
+        return;
+      }
+
+      list.forEach(p => {
+        grid.appendChild(createProductCard(p, false));
+      });
+    }
+
+    // فلترة البحث داخل القسم
+    function filterProducts() {
+      const input = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('clearLocalSearch');
+      const query = input.value.trim();
+
+      if (query.length > 0) {
+        clearBtn.classList.add('visible');
+      } else {
+        clearBtn.classList.remove('visible');
+      }
+
+      renderProducts(query);
+    }
+
+    function clearLocalSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearLocalSearch').classList.remove('visible');
+      renderProducts('');
+    }
+
+    // البحث الشامل في كل الأقسام
+    function handleGlobalSearch() {
+      const input = document.getElementById('globalSearchInput');
+      const clearBtn = document.getElementById('clearGlobalSearch');
+      const resultsSection = document.getElementById('globalSearchResultsSection');
+      const categoriesSection = document.getElementById('categoriesMainSection');
+      const resultsGrid = document.getElementById('globalResultsGrid');
+      const query = input.value.trim();
+
+      if (query.length > 0) {
+        clearBtn.classList.add('visible');
+        categoriesSection.classList.add('hidden');
+        resultsSection.classList.remove('hidden');
+
+        const matches = products.filter(p => p.hidden !== true && p.name.toLowerCase().includes(query.toLowerCase()));
+        document.getElementById('globalResultsCount').textContent = `${matches.length} صنف`;
+        resultsGrid.innerHTML = '';
+
+        if (matches.length === 0) {
+          resultsGrid.innerHTML = '<div class="empty-state">لم يتم العثور على أي منتج بهذا الاسم في جميع الأقسام.</div>';
+        } else {
+          matches.forEach(p => {
+            resultsGrid.appendChild(createProductCard(p, true));
+          });
+        }
+      } else {
+        clearBtn.classList.remove('visible');
+        resultsSection.classList.add('hidden');
+        categoriesSection.classList.remove('hidden');
+      }
+    }
+
+    function clearGlobalSearch() {
+      document.getElementById('globalSearchInput').value = '';
+      document.getElementById('clearGlobalSearch').classList.remove('visible');
+      document.getElementById('globalSearchResultsSection').classList.add('hidden');
+      document.getElementById('categoriesMainSection').classList.remove('hidden');
+    }
+
+    // نافذة تكبير الصورة
+    function openImageModal(src, title) {
+      document.getElementById('modalImage').src = src;
+      document.getElementById('modalCaption').textContent = title;
+      document.getElementById('imageModal').classList.remove('hidden');
+    }
+
+    function closeImageModal() {
+      document.getElementById('imageModal').classList.add('hidden');
+      document.getElementById('modalImage').src = '';
+    }
+
+    // إظهار زر الصعود للأعلى عند التمرير
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('scrollTopBtn');
+      if (window.scrollY > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    history.replaceState({ view: 'home' }, '', '');
+    renderCategories();
+  </script>
 </body>
 </html>
